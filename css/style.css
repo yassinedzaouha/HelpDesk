@@ -1,0 +1,45 @@
+/* styles.css */
+@import "tailwindcss";
+
+:root {
+    --color-primary:#202A38;
+    --color-secondary:#8290A2;
+    --color-bordercolor:#D5DADF;
+    --color-background:#F7F8FA;
+    --color-back:#FFFFFF;    
+}
+
+*{
+    font-family: "Inter", sans-serif;
+}
+
+body{
+    color: var(--color-primary);
+}
+
+section{
+    padding: 20px 5%;
+}
+
+main {
+    background-color: #f0f1f4;
+}
+
+
+
+/* header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 5%;
+    background-color: var(--color-back);
+}
+
+header img{
+    width: 100px;
+}
+
+header p{
+    display: none;
+
+} */
