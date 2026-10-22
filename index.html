@@ -9,7 +9,7 @@
     <!-- file css  -->
     <link rel="stylesheet" href="css/style.css">
 
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -44,11 +44,11 @@
                 <div class="text-[11px] gap-3 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4">
                     <div class="flex flex-col xl:col-span-2">
                         <label class="mb-1">Titre du problème *</label>
-                        <input type="text"  id="probleme" class="border text-[#8290A2] border-[#D5DADF] rounded-md px-1 py-2 " placeholder="Connexion Wi-Fi instable" required>
+                        <input type="text"  id="probleme" class="border  border-[#D5DADF] rounded-md px-1 py-2 " placeholder="Connexion Wi-Fi instable" required>
                     </div>
                     <div class="flex flex-col">
                         <label class="mb-1" for="">Catégorie *</label>
-                        <select class="border text-[#8290A2] border-[#D5DADF] rounded-md px-1 py-2 " id="category" name="category" required>
+                        <select class="border  border-[#D5DADF] rounded-md px-1 py-2 " id="category" name="category" required>
                             <option value="Réseau" selected>Réseau</option>
                             <option value="Matériel">Matériel</option>
                             <option value="Logiciel">Logiciel</option>
@@ -58,7 +58,7 @@
                     </div>
                     <div class="flex flex-col">
                         <label class="mb-1" for="">Priorité *</label>
-                        <select class="border text-[#8290A2] border-[#D5DADF] rounded-md px-1 py-2 " id="priority" name="priority" required>
+                        <select class="border  border-[#D5DADF] rounded-md px-1 py-2 " id="priority" name="priority" required>
                             <option value="Basse">Basse</option>
                             <option value="Moyenne">Moyenne</option>
                             <option value="Haute" selected>Haute</option>
@@ -69,7 +69,7 @@
                         <label  class="mb-1 text-[11px]"  for="description">
                             Description *
                         </label>
-                        <textarea class="resize-none text-[#8290A2] border border-[#D5DADF] rounded-md px-2 py-2 h-8" id="description" name="description" rows="4" placeholder="Décrivez votre problème..."
+                        <textarea class="resize-none  border border-[#D5DADF] rounded-md px-2 py-2 h-8" id="description" name="description" rows="4" placeholder="Décrivez votre problème..."
                             required></textarea>
                     </div>
                 </div>
@@ -83,7 +83,7 @@
             <div class="flex justify-between items-center mb-5"> 
                 <div class="flex justify-between w-full md:w-fit md:gap-5">
                     <h3 class="text-[18px] font-medium">Liste des demandes</h3>
-                    <p class="text-[#5C697B] text-[11px] bg-[#bbc0c5] p-1  rounded-xl">3 demandes</p>
+                    <p id="domandeNmber" class="text-[#5C697B] text-[11px] bg-[#bbc0c5] p-1  rounded-xl">0 demandes</p>
                 </div>
                 <div class="text-[12px] hidden md:block p-2 bg-[#bbc0c5] rounded-lg ">
                     <button class="p-1 rounded-lg cursor-pointer mr-5  bg-white">
@@ -94,33 +94,12 @@
                     </button>
                 </div>
             </div>
-            <div class="grid gap-5 grid-cols-1 md:grid-cols-2 xl:grid-cols-3">
-                <article class="p-5 bg-white rounded-lg">
-                    <div class="flex justify-between items-center mb-5">
-                        <i class="fa-solid fa-bolt-lightning fa-rotate-90 bg-[#bbc0c5] p-3 text-[#5C697B] rounded-lg"></i>
-                        <p class="text-[#8290A2] text-[10px]">HD-001</p>
-                    </div>
-                    <div class="leading-[28px] pb-3 border-b-1 ">
-                        <h4 class="font-bold">Connexion Wi-Fi instable</h4>
-                        <p class="text-[11px] text-[#8290A2]">Le réseau se déconnecte régulièrement.</p>
-                        <div class="mt-5 flex gap-5">
-                            <p class="bg-[#bbc0c5] text-[#5C697B] px-2 pr-4 text-[9px] rounded-xl">Réseau</p>
-                            <p class="bg-[#bbc0c5] text-[#5C697B] px-2 pr-4 text-[9px] rounded-xl">Haute</p>
-                        </div>
-                    </div>
-                    <div class="mt-5 text-[12px] flex justify-end gap-4">
-                        <button class="text-[#5C697B]">
-                            ✎ Modifier
-                        </button>
-                        <button class="text-[#CC626A]">
-                            ♜ Supprimer
-                        </button>
-                    </div>
-                </article>
+            <div id="cards" class="grid gap-5 grid-cols-1 md:grid-cols-2 xl:grid-cols-3">
             </div>
         </section>
     </main>
 </body>
 <script src="js/script.js"></script>
+
 
 </html>
