@@ -4,7 +4,7 @@
 
 HelpDesk est une application web responsive permettant de consulter, d'ajouter et de supprimer des demandes de support informatique à travers une interface simple et interactive.
 
-![Aperçu de HelpDesk](assets/helpdesk-preview.png)
+![Aperçu de HelpDesk](assets/images/helpdesk-preview.png)
 
 ## Technologies utilisées
 - HTML5
