@@ -4,6 +4,11 @@ const data = [
     {id:3, probleme: "Clavier défectueux", category:"Matériel" , priority:"Basse" ,desc:"Certaines touches ne fonctionnent plus."}
 ];
 
+if(!localStorage.length){
+    localStorage.setItem("demands" , JSON.stringify(demands));
+}
+
+
 let id = 3;
 
 let probleme = document.getElementById("probleme").value
@@ -12,9 +17,6 @@ let priority = document.getElementById("priority").value
 let desc = document.getElementById("description").value
 let btn = document.getElementById("submit")
 
-if(!localStorage.length){
-    localStorage.setItem("demands" , JSON.stringify(demands));
-}
 
 
 function validateForm(){
