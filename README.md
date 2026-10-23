@@ -1,49 +1,43 @@
 # HelpDesk — Gestion des demandes de support informatique
 
-## Description
-HelpDesk est une application web responsive développée dans le cadre d'un projet de formation chez YouCode. Elle permet de consulter, d'ajouter et de supprimer des demandes de support informatique grâce à une interface simple et interactive.
+## Aperçu du projet
 
-Ce projet a pour objectif de mettre en pratique les fondamentaux de JavaScript, notamment la manipulation du DOM, la gestion des événements et la validation des formulaires.
+HelpDesk est une application web responsive permettant de consulter, d'ajouter et de supprimer des demandes de support informatique à travers une interface simple et interactive.
+
+![Aperçu de HelpDesk](assets/helpdesk-preview.png)
 
 ## Technologies utilisées
-- **HTML5** : structure et organisation du contenu.
-- **CSS3** : mise en page, design et responsive.
-- **JavaScript Vanilla** : gestion des demandes et interactions dynamiques.
+- HTML5
+- CSS3
+- JavaScript Vanilla
 
 ## Fonctionnalités
-- Affichage dynamique des demandes de support.
-- Ajout de nouvelles demandes avec validation des champs obligatoires.
-- Suppression des demandes avec confirmation.
-- Affichage du nombre total de demandes.
-- Gestion des catégories : Matériel, Logiciel et Réseau.
-- Gestion des priorités : Basse, Normale et Haute.
-- Interface responsive adaptée aux mobiles, tablettes et ordinateurs.
+- Affichage dynamique des demandes.
+- Ajout de demandes avec validation du formulaire.
+- Suppression avec confirmation.
+- Compteur dynamique des demandes.
+- Gestion des catégories et des priorités.
+- Interface responsive.
 
 ## Structure du projet
 ```text
 HelpDesk/
-├── index.html
+├── assets/
+│   └── helpdesk-preview.png
 ├── css/
 │   └── style.css
 ├── js/
 │   └── script.js
+├── index.html
 └── README.md
 ```
 
-## Installation et lancement
-1. Cloner le dépôt GitHub :
-   ```bash
-   git clone URL_DU_REPOSITORY
-   ```
+## Installation
+1. Cloner le repository GitHub.
 2. Ouvrir le dossier du projet.
-3. Lancer l'application en ouvrant le fichier `index.html` dans un navigateur.
-
-Aucune installation supplémentaire n'est nécessaire.
-
-## Fonctionnement
-Les demandes sont stockées dans un tableau d'objets JavaScript et affichées dynamiquement dans la page. Les ajouts et les suppressions actualisent automatiquement la liste et le compteur, sans rechargement de la page.
-
-**Remarque :** L'application fonctionne entièrement dans le navigateur, sans backend ni base de données.
+3. Lancer `index.html` dans un navigateur.
 
 ## Contexte pédagogique
-Projet individuel réalisé dans le cadre de la formation YouCode afin de renforcer les compétences en HTML, CSS, JavaScript, Git et GitHub.
+Projet individuel réalisé chez YouCode pour pratiquer la manipulation du DOM, les événements JavaScript et la validation des formulaires.
+
+**Remarque :** L'application fonctionne dans le navigateur, sans backend ni base de données.
