@@ -58,7 +58,7 @@
                         <label class="mb-1" for="">Priorité *</label>
                         <select class="border  border-[#D5DADF] rounded-md px-1 py-2 " id="priority" name="priority" required>
                             <option value="Basse">Basse</option>
-                            <option value="Moyenne">Moyenne</option>
+                            <option value="Normale">Normale</option>
                             <option value="Haute" selected>Haute</option>
                         </select>
                     </div>
@@ -98,16 +98,20 @@
             <div id="cards" class="grid gap-5 grid-cols-1 md:grid-cols-2 xl:grid-cols-3">
             </div>
         </section>
-        <section id="table_section" class="hidden">
+        <section id="table_section" class="max-md:hidden md:hidden">
             <table class="w-full text-left text-xs text-[#6B7686] bg-white rounded-xl">
-                <tr class="bg-[#FAFBFC] border-b border-[#EDF0F3]">
-                    <th class="py-5 px-5">N° Ticket</th>
-                    <th class="py-5">Taitre de la demande</th>
-                    <th class="py-5 px-2.5">Catégorie</th>
-                    <th class="py-5 px-2.5">Priorité</th>
-                    <th class="py-5">Action</th>
-                </tr>
-                
+                <thead>
+                    <tr class="bg-[#FAFBFC] border-b border-[#EDF0F3]">
+                        <th class="py-5 px-5">N° Ticket</th>
+                        <th class="py-5">Taitre de la demande</th>
+                        <th class="py-5 px-2.5">Catégorie</th>
+                        <th class="py-5 px-2.5">Priorité</th>
+                        <th class="py-5">Action</th>
+                    </tr>
+                </thead>
+                <tbody id="tbody" class="w-full">
+
+                </tbody>
             </table>
         </section>
         
