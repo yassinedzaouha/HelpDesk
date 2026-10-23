@@ -1,18 +1,30 @@
-let data = [
+let demands = [
     {id:1, probleme: "Connexion Wi-Fi instable", category:"Réseau" , priority:"Haute" ,desc:"Le réseau se déconnecte régulièrement."},
     {id:2, probleme: "Installation d’un logiciel", category:"Logiciel" , priority:"Normale" ,desc:"Installer un logiciel sur le poste.  "},
     {id:3, probleme: "Clavier défectueux", category:"Matériel" , priority:"Basse" ,desc:"Certaines touches ne fonctionnent plus."}
 ];
 
+
+let id = 3;
+let id_demand_modify = 0;
+
+let probleme = document.getElementById("probleme");
+let category = document.getElementById("category");
+let priority = document.getElementById("priority");
+let desc = document.getElementById("description");
+let btn = document.getElementById("submit");
+let modifyBtn = document.getElementById("modify");
+let cards = document.getElementById("cards");
+let demandNumber = document.getElementById("demandNmber");
+let table = document.getElementById("table_section");
+let cards_btn = document.getElementById("cards_btn");
+let table_btn = document.getElementById("table_btn");
+
 if(!localStorage.length){
     localStorage.setItem("demands" , JSON.stringify(demands));
 }
 
-
-let id = 3;
-
-
-
+showArticle()
 
 function validateForm(){
     probleme.classList.remove("border-[red]");
@@ -56,7 +68,6 @@ function addArticle(){
     desc.value = "";
 }
 
-// localStorage.setItem("demands" , JSON.stringify(data));
 
 btn.addEventListener("click", (e) => {
     e.preventDefault();
@@ -64,6 +75,13 @@ btn.addEventListener("click", (e) => {
     showArticle();
     
 })
+
+modifyBtn.addEventListener("click", (e)=>{
+    e.preventDefault();
+    editArticle(id_demand_modify);
+    showArticle();
+})
+
 
 
 function showArticle() {
@@ -144,6 +162,68 @@ function showArticle() {
     console.log(demands)
     demandNumber.textContent = `${demands.length} demands` ;
 }
+    
 
+function prioritySwitch(prio){
+    let style = "";
+    
+    switch(prio) {
+        case "Haute":
+            style = "bg-[#FFF0E8] text-[#BA6444] px-2 pr-4 text-[9px] rounded-xl font-bold";
+            break;
+        case "Normale":
+            style = "bg-[#FFF5DF] text-[#A67A2B] px-2 pr-4 text-[9px] rounded-xl font-bold";
+            break;
+        case "Basse": 
+            style = "bg-[#E8F6EE] text-[#388867] px-2 pr-4 text-[9px] rounded-xl font-bold";
+            break;
+        default :
+            style = "";
+    }
+    return style;
+}
+
+function Modifier(demand){
+    probleme.value = demand.probleme
+    category.value = demand.category
+    priority.value = demand.priority
+    desc.value = demand.desc
+
+    id_demand_modify = demand.id
+    btn.classList.add("hidden");
+    modifyBtn.classList.remove("hidden");
+}
+
+function editArticle(id){
+    if(!validateForm()){
+        return ;
+    }
+    for(let i=0;i<demands.length;i++) {
+        if(id == demands[i].id){
+            demands[i].probleme = probleme.value;
+            demands[i].category = category.value;
+            demands[i].priority = priority.value;
+            demands[i].desc = desc.value;
+            break;
+        }
+    }
+     localStorage.setItem("demands" , JSON.stringify(demands));
+    editId = 0;
+    btn.classList.remove("hidden");
+    modifyBtn.classList.add("hidden");
+
+    probleme.value = "";
+    category.value = "";
+    priority.value = "";
+    desc.value = "";
+}
+
+
+function deleteArticle(id) {
+    demands = demands.filter((demand) => demand.id != id);
+    localStorage.setItem("demands", JSON.stringify(demands));
+    demandNumber.textContent = `${demands.length} demands`;
+    showArticle();
+}
 
 
