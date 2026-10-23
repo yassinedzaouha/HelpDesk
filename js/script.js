@@ -19,7 +19,8 @@ let demandNumber = document.getElementById("demandNmber");
 let table = document.getElementById("table_section");
 let cards_btn = document.getElementById("cards_btn");
 let table_btn = document.getElementById("table_btn");
-let t_body = document.getElementById("tbody")
+let t_body = document.getElementById("tbody");
+let form_title = document.getElementById("form_title");
 
 if(!localStorage.length){
     localStorage.setItem("demands" , JSON.stringify(demands));
@@ -86,6 +87,12 @@ modifyBtn.addEventListener("click", (e)=>{
 })
 
 
+function add_element(tag, className, textContent) {
+    const element = document.createElement(tag);
+    element.className = className;
+    element.textContent = textContent;
+    return element;
+}
 
 function showArticle() {
     demands = JSON.parse(localStorage.getItem("demands"));
@@ -93,71 +100,47 @@ function showArticle() {
     console.log(demands);
     
     demands.forEach((demand) => {
+        const article = add_element("article", "p-5 bg-white rounded-lg", "");
 
-        const article = document.createElement("article");
-        article.className = "p-5 bg-white rounded-lg";
+        const firstDiv = add_element("div", "flex justify-between items-center mb-5", "")
 
-        const firstDiv = document.createElement("div");
-        firstDiv.className = "flex justify-between items-center mb-5";
+        const secondDiv = add_element("div", "leading-[28px] pb-4 border-b-2 border-[#EDF0F3]", "");
 
-        const secondDiv = document.createElement("div");
-        secondDiv.className = "leading-[28px] pb-4 border-b-2 border-[#EDF0F3]";
-
-        const thirdDiv = document.createElement("div");
-        thirdDiv.className = "mt-5 text-[12px] flex justify-end gap-4";
+        const thirdDiv = add_element("div", "mt-5 text-[12px] flex justify-end gap-4", "");
 
         article.append(firstDiv, secondDiv, thirdDiv);
 
         //First div
         // Icon
-        const icon = document.createElement("i");
-        icon.className ="fa-regular fa-square-plus bg-[#bbc0c5] p-3 text-[#5C697B] rounded-lg";
-        // ID
-        const idP = document.createElement("p");
-        idP.className = "text-[#8290A2] text-[10px]";
-        idP.textContent = `HD-${String(demand.id).padStart(3, "0")}`;
+        const icon = add_element("i", "fa-regular fa-square-plus bg-[#bbc0c5] p-3 text-[#5C697B] rounded-lg", "");
+        const idP = add_element("p", "text-[#8290A2] text-[10px]", `HD-${String(demand.id).padStart(3, "0")}`);
         firstDiv.append(icon, idP);
 
         //second div
         // Problem title
-        const problemeH4 = document.createElement("h4");
-        problemeH4.className = "font-bold";
-        problemeH4.textContent = demand.probleme;
-        // Description
-        const descP = document.createElement("p");
-        descP.className = "text-[11px] text-[#8290A2]";
-        descP.textContent = demand.desc;
-        // Category and priority container
-        const secondDiv_1 = document.createElement("div");
-        secondDiv_1.className = "mt-5 flex gap-5";
-        // Category
-        const categoryP = document.createElement("p");
-        categoryP.className = "bg-[#bbc0c5] text-[#5C697B] px-2 pr-4 text-[9px] rounded-xl font-bold";
-        categoryP.textContent = demand.category;
+        const problemeH4 = add_element("h4", "font-bold", demand.probleme);
+        const descP = add_element("p", "text-[11px] text-[#8290A2]", demand.desc);
+
+        const secondDiv_1 = add_element("div", "mt-5 flex gap-5", "");
+        const categoryP = add_element("p", "bg-[#bbc0c5] text-[#5C697B] px-2 pr-4 text-[9px] rounded-xl font-bold", demand.category);
         // Priority
-        const priorityP = document.createElement("p");
-        priorityP.textContent = demand.priority
-        priorityP.className = prioritySwitch(demand.priority)
+        const priorityP = add_element("p", prioritySwitch(demand.priority), demand.priority);
         secondDiv_1.append(categoryP, priorityP);
         secondDiv.append(problemeH4, descP, secondDiv_1);
 
         //third div
         // Edit button
-        const editBtn = document.createElement("button");
-        editBtn.className = "text-[#5C697B] font-bold btnModifier";
-        editBtn.textContent = "✎ Modifier";
+        const editBtn = add_element("button", "text-[#5C697B] font-bold btnModifier", "✎ Modifier");
         editBtn.addEventListener("click", ()=>{
-            Modifier(demand)
+            Modifier(demand);
         })
         // Delete button
-        const deleteBtn = document.createElement("button");
-        deleteBtn.className = "text-[#CC626A] font-bold";
-        deleteBtn.textContent = "♜ Supprimer";
+        const deleteBtn = add_element("button", "text-[#CC626A] font-bold", "♜ Supprimer");
         deleteBtn.addEventListener("click", () => {
             deleteArticle(demand.id);
         });
-        thirdDiv.append(editBtn, deleteBtn);
 
+        thirdDiv.append(editBtn, deleteBtn);
 
         cards.append(article);
 
@@ -196,6 +179,7 @@ function Modifier(demand){
         id_demand_modify = demand.id
         btn.classList.add("hidden");
         modifyBtn.classList.remove("hidden");
+        form_title.textContent = "Modifier une demande";
     } 
 }
 
@@ -216,6 +200,7 @@ function editArticle(id){
     editId = 0;
     btn.classList.remove("hidden");
     modifyBtn.classList.add("hidden");
+    form_title.textContent = "Créer une demande";
 
     probleme.value = "";
     category.value = "";
@@ -250,6 +235,8 @@ table_btn.addEventListener("click", function () {
     
 });
 
+
+
 function showTable() {
     t_body.textContent = "";
 
@@ -260,7 +247,8 @@ function showTable() {
         td_id.className = "py-5 px-5 font-bold";
         td_id.textContent =`HD-${String(demand.id).padStart(3, "0")}`;
 
-        const td_title = document.createElement("td");
+        const td_title = add_element("td", "", "");
+
 
         const title = document.createElement("h3");
         title.className = "font-bold text-[#263441]";
