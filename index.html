@@ -52,8 +52,6 @@
                             <option value="Réseau" selected>Réseau</option>
                             <option value="Matériel">Matériel</option>
                             <option value="Logiciel">Logiciel</option>
-                            <option value="Sécurité">Sécurité</option>
-                            <option value="Autre">Autre</option>
                         </select>
                     </div>
                     <div class="flex flex-col">
@@ -62,7 +60,6 @@
                             <option value="Basse">Basse</option>
                             <option value="Moyenne">Moyenne</option>
                             <option value="Haute" selected>Haute</option>
-                            <option value="Critique">Critique</option>
                         </select>
                     </div>
                     <div class="flex flex-col xl:col-span-4">
@@ -73,23 +70,27 @@
                             required></textarea>
                     </div>
                 </div>
-                
-                <button id="submit" class="bg-[#202A38] text-[11px] w-[100%] text-white p-2 mt-3 rounded-lg">
-                    ＋  Ajouter la demande
-                </button>
+                <div class="w-[100%] flex justify-end">
+                    <button id="submit" class= "bg-[#202A38] text-[11px] w-[20%] text-white p-2 mt-3 rounded-lg">
+                        +  Ajouter la demande
+                    </button>
+                    <button id="modify" class="bg-[#202A38] hidden text-[11px] w-[20%] text-white p-2 mt-3 rounded-lg">
+                        -  modifier
+                    </button>
+                </div>
             </form>
         </section>
         <section >
             <div class="flex justify-between items-center mb-5"> 
                 <div class="flex justify-between w-full md:w-fit md:gap-5">
                     <h3 class="text-[18px] font-medium">Liste des demandes</h3>
-                    <p id="domandeNmber" class="text-[#5C697B] text-[11px] bg-[#bbc0c5] p-1  rounded-xl">0 demandes</p>
+                    <p id="demandNmber" class="text-[#5C697B] text-[11px] bg-[#bbc0c5] p-1  rounded-xl">0 demandes</p>
                 </div>
                 <div class="text-[12px] hidden md:block p-2 bg-[#bbc0c5] rounded-lg ">
-                    <button class="p-1 rounded-lg cursor-pointer mr-5  bg-white">
+                    <button id="cards_btn" class="p-1 rounded-lg cursor-pointer mr-5  bg-white">
                         ▦  Cartes
                     </button>
-                    <button class="p-1 rounded-lg cursor-pointer text-[#5C697B]">
+                    <button id="table_btn" class="p-1 rounded-lg cursor-pointer text-[#5C697B]">
                         ☷  Tableau
                     </button>
                 </div>
@@ -97,6 +98,19 @@
             <div id="cards" class="grid gap-5 grid-cols-1 md:grid-cols-2 xl:grid-cols-3">
             </div>
         </section>
+        <section id="table_section" class="hidden">
+            <table class="w-full text-left text-xs text-[#6B7686] bg-white rounded-xl">
+                <tr class="bg-[#FAFBFC] border-b border-[#EDF0F3]">
+                    <th class="py-5 px-5">N° Ticket</th>
+                    <th class="py-5">Taitre de la demande</th>
+                    <th class="py-5 px-2.5">Catégorie</th>
+                    <th class="py-5 px-2.5">Priorité</th>
+                    <th class="py-5">Action</th>
+                </tr>
+                
+            </table>
+        </section>
+        
     </main>
 </body>
 <script src="js/script.js"></script>
